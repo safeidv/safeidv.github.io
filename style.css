@@ -1,80 +1,263 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-        * {
-            font-family: 'Noto Sans', sans-serif;
-        }
-        
-        body {
-            background: url('background.jpg') no-repeat center center fixed;
-            background-size: cover;
-            margin: 0;
-            font-family: 'Noto Sans', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+/* Палитра Nord */
+:root {
+  --nord0: #2e3440;
+  --nord1: #3b4252;
+  --nord4: #d8dee9;
+  --nord5: #e5e9f0;
+  --nord8: #88c0d0;
+  --nord9: #81a1c1;
+  --nord10: #5e81ac;
+  --nord15: #b48ead;
+}
 
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('img/overlay.png') no-repeat center center;
-            background-size: cover;
-            opacity: 0.5;
-            z-index: 1;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        .container {
-            background: rgba(25, 23, 36, 0.6);
-            border: 2px solid rgb(133, 158, 165);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            color: #e0def4;
-            width: 300px;
-            z-index: 2;
-        }
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--nord4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: var(--nord0);
+  gap: 20px;
+}
 
-        .avatar {
-            margin-bottom: 1rem;
-        }
+/* Видео-фон */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+}
 
-        .avatar img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid rgb(133, 158, 165);
-        }
+/* Затемнение фона */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(46, 52, 64, 0.6);
+  z-index: -1;
+}
 
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: rgb(121, 156, 175);
-        }
+/* Карточка профиля */
+.card {
+  background: rgba(46, 52, 64, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(136, 192, 208, 0.2);
+  border-radius: 16px;
+  padding: 40px 30px;
+  width: 380px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
 
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            align-items: center;
-        }
+.avatar-container {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(45deg, var(--nord8), var(--nord15));
+  box-shadow: 0 0 20px rgba(136, 192, 208, 0.4);
+}
 
-        .links a {
-            width: 200px;
-            padding: 0.5rem 1rem;
-            border: 1px solid rgb(133, 158, 165);
-            border-radius: 10px;
-            background: rgba(25, 23, 36, 0.3);
-            color: rgb(121, 156, 175);
-            cursor: pointer;
-            transition: background 0.3s, color 0.3s;
-            text-decoration: none;
-        }
+.avatar-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--nord0);
+}
 
-        .links a:hover {
-            background: rgba(144, 160, 159, 0.6);
-            color: #191724;
-        }
+.username {
+  font-family: "Inter", monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  align-self: center;
+  color: var(--nord8);
+  text-shadow: 0 0 10px rgba(136, 192, 208, 0.5);
+  margin-bottom: 5px;
+}
+
+/* Текст под ником */
+.bio {
+  font-size: 0.9rem;
+  color: var(--nord9);
+  margin-bottom: 15px;
+}
+
+/* Разделительная полоска */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(136, 192, 208, 0.4),
+    transparent
+  );
+  margin-bottom: 20px;
+}
+
+/* Социальные сети */
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Немного уменьшил gap, чтобы 5 иконок поместились ровно */
+}
+
+.social-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--nord4);
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Неоновое свечение */
+.social-links a.telegram {
+  color: #26a5e4;
+  filter: drop-shadow(0 0 8px rgba(38, 165, 228, 0.7));
+}
+.social-links a.telegram:hover {
+  transform: translateY(-3px) scale(1.1);
+  filter: drop-shadow(0 0 15px rgba(38, 165, 228, 1));
+}
+
+.social-links a.steam {
+  color: #66c0f4;
+  filter: drop-shadow(0 0 8px rgba(102, 192, 244, 0.7));
+}
+.social-links a.steam:hover {
+  transform: translateY(-3px) scale(1.1);
+  filter: drop-shadow(0 0 15px rgba(102, 192, 244, 1));
+}
+
+.social-links a.spotify {
+  color: #1db954;
+  filter: drop-shadow(0 0 8px rgba(29, 185, 84, 0.7));
+}
+.social-links a.spotify:hover {
+  transform: translateY(-3px) scale(1.1);
+  filter: drop-shadow(0 0 15px rgba(29, 185, 84, 1));
+}
+
+.social-links a.twitch {
+  color: #9146ff;
+  filter: drop-shadow(0 0 8px rgba(145, 70, 255, 0.7));
+}
+.social-links a.twitch:hover {
+  transform: translateY(-3px) scale(1.1);
+  filter: drop-shadow(0 0 15px rgba(145, 70, 255, 1));
+}
+
+/* Стили для GitHub (белое свечение) */
+.social-links a.github {
+  color: #ffffff;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+}
+.social-links a.github:hover {
+  transform: translateY(-3px) scale(1.1);
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1));
+}
+
+/* Музыкальный плеер */
+.music-player {
+  position: relative;
+  background: rgba(46, 52, 64, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(136, 192, 208, 0.2);
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 380px;
+  z-index: 10;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.music-player img {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.music-info {
+  flex-grow: 1;
+}
+
+.music-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.65rem;
+  color: var(--nord9);
+}
+
+.progress-container {
+  flex-grow: 1;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(216, 222, 233, 0.1);
+  border-radius: 2px;
+  position: relative;
+}
+
+.progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--nord8);
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+.play-btn {
+  cursor: pointer;
+  color: var(--nord4);
+  margin-left: 10px;
+  transition: 0.2s;
+}
+
+.play-btn:hover {
+  color: var(--nord8);
+}
+
+/* Адаптация под мобильные */
+@media (max-width: 600px) {
+  .card,
+  .music-player {
+    width: 90%;
+    max-width: 380px;
+  }
+}

@@ -1,25 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>safeidv</title>
-    <link rel="icon" href="ic.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <div class="avatar">
-            <img src="avatar.png" alt="Profile Picture">
-        </div>
-        <h1>safeidv</h1>
-        
-        <div class="links">
-            <a href="https://t.me/safeidv" target="_blank">tg</a>
-            <a href="https://t.me/+LU4FtGmDA3c5ZGEy" target="_blank">channel</a>
-            <a href="https://github.com/safeidv" target="_blank">github</a>
-            <a href="https://www.twitch.tv/safeidv_" target="_blank">twitch</a>
-        </div>
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="ic.png" type="image/png" />
+  </head>
+  <body>
+    <!-- Видео-фон -->
+    <video id="bg-video" autoplay loop muted playsinline>
+      <source src="https://kappa.lol/lXIRYJ" type="video/mp4" />
+    </video>
+
+    <!-- Аудио плеер -->
+    <audio
+      id="bg-music"
+      src="https://muzaf.net/uploads/music/2022/07/Luna_Lyutiki_Izzamuzzic_Remix.mp3"
+      loop
+    ></audio>
+
+    <!-- Карточка профиля -->
+    <div class="card">
+      <div class="avatar-container">
+        <img src="avatar.png" alt="Avatar" />
+      </div>
+      <div class="username">safeidv</div>
+
+      <div class="bio">медиа молекула + модер</div>
+
+      <div class="divider"></div>
+
+      <!-- Обновленный список соцсетей -->
+      <div class="social-links">
+        <!-- Telegram теперь первый -->
+        <a href="https://t.me/safeidv_1" class="telegram" target="_blank">
+          <i class="fa-brands fa-telegram"></i>
+        </a>
+        <!-- Steam теперь второй -->
+        <a
+          href="https://steamcommunity.com/id/safeidv/"
+          class="steam"
+          target="_blank"
+        >
+          <i class="fa-brands fa-steam"></i>
+        </a>
+        <a
+          href="https://open.spotify.com/user/31nsthlad2nsznzwa3iphsdvhq5m"
+          class="spotify"
+          target="_blank"
+        >
+          <i class="fa-brands fa-spotify"></i>
+        </a>
+        <a href="https://twitch.tv/safeidv_" class="twitch" target="_blank">
+          <i class="fa-brands fa-twitch"></i>
+        </a>
+        <!-- Добавлен GitHub в конец (замени # на свою ссылку) -->
+        <a href="https://github.com/safeidv/" class="github" target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
     </div>
-</body>
+
+    <!-- Музыкальный плеер -->
+    <div class="music-player">
+      <img
+        src="https://i.scdn.co/image/ab67616d0000b273ae69695f7a37ca807307f579"
+        alt="Cover"
+      />
+      <div class="music-info">
+        <div class="music-progress">
+          <span id="current-time">00:00</span>
+          <div class="progress-container" id="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+          </div>
+          <i class="fa-solid fa-play play-btn" id="play-btn"></i>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
